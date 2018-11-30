@@ -1,0 +1,92 @@
+body {
+    background-image: url("exchangePic.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 {
+    font-family: Arial;
+    color: #ff8c1a;
+    text-shadow: 1px  1px 2px black;
+}
+
+.center {
+    padding-top: 80px;
+    padding-bottom: 40px;
+    text-align: center;
+}
+
+.styled-select {
+    -webkit-appearance: none;
+    background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 87% 0;
+    height: 30px;
+    /*overflow: hidden;*/
+    width: 100px;
+    cursor: pointer;
+
+    /*-webkit-border-radius: 5px;*/
+    /*-moz-border-radius: 5px;*/
+    border-radius: 5px;
+    border: none;
+    /*border: solid 3px #ff8c1a;*/
+    background-color: #ffbf80;
+
+    font-family: Arial;
+    font-size: 15px;
+    /*font-color: white;*/
+    padding-left: 8px;
+    /*color:white;*/
+    /*text-shadow: 1px  1px 2px black;*/
+}
+
+/*.styled-select select {
+
+}*/
+
+#amount {
+    height: 25px;
+    width: 100px;
+    font-family: Arial;
+    font-size: 15px;
+    border-radius: 5px;
+    border: solid thin #ffbf80;
+    padding-left: 7px;
+}
+
+button {
+    height: 30px;
+    width: 100px;
+    font-family: Arial;
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #ffbf80;
+    /*color:white;*/
+    /*text-shadow: 1px  1px 2px black;*/
+}
+
+table {
+    margin: auto;
+    background: #eeeeee;
+    border-radius: 5px;
+    border: solid 3px #ff8c1a;
+    border-collapse: collapse;
+}
+
+th{
+    width: 150px;
+    height: 35px;
+    font-family: Arial;
+    font-size: 21px;
+    border: solid thin #ff8c1a;
+}
+
+td {
+    width: 100px;
+    height: 30px;
+    font-family: Arial;
+    font-size: 18px;
+    text-align: center;
+    border: solid thin #ff8c1a;
+}

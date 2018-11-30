@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Currency Exchange</title>
+
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="center">
+        <h1>Currency Exchange</h1>
+        <select id="selected" class="styled-select">
+            <option value="USD">USD</option>
+            <option value="ILS">ILS</option>
+            <option value="EUR">EUR</option>
+        </select>
+        <input type="text" id="amount" placeholder="0"/>
+        <button onclick=showRates()>Show Rates</button>
+    </div>
+
+        <table id="exchangeTable">
+            <tr>
+                <th>Currency</th>
+                <th>Rate</th>
+            </tr>
+            <tr>
+                <td>USD</td>
+                <td id="usRate">0.0</td>
+            </tr>
+            <tr>
+                <td>ILS</td>
+                <td id="ilRate">0.0</td>
+            </tr>
+            <tr>
+                <td>EUR</td>
+                <td id="euRate">0.0</td>
+            </tr>
+        </table>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
