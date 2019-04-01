@@ -1,13 +1,9 @@
+/* Current implementation of code only shows 3 main currency exchanges:EUR, ILS, USD
+    In order for more exchange rates to be shown, code needs to be written more dynamicly,
+    always searching by object name */
 
-/*var request = new XMLHttpRequest();
-request.open('GET', url, false);
-request.send();
-console.log(request.status);
-console.log(request.statusText);
-console.log(request);
-console.log(request.response);
-var data = JSON.parse(request.responseText);
-console.log(data);*/
+
+// Function that enables enter keypress to reveal current rates
 (function init(){
     document.addEventListener("keypress", function(event){
         var x = document.getElementById("amount").value;
@@ -24,10 +20,8 @@ var finalRates  = new Object;
 function showRates() {
     var fromCurrency = document.getElementById("selected").value;
     var toCurrency = changeTo(fromCurrency);
-    var query = fromCurrency + '_' + toCurrency[0] + ',' +
-        fromCurrency + '_' + toCurrency[1];
-    var url = 'https://free.currencyconverterapi.com/api/v5/convert' +
-        '?q=' + query + '&compact=ultra';
+    var url = 'https://api.exchangeratesapi.io/latest?base=' + fromCurrency +
+                '&symbols=' + toCurrency[0] + ',' + toCurrency[1];
     fetch(url)
         .then(function(response) {
             return response.json();
@@ -47,27 +41,21 @@ function changeTo(from) {
 }
 
 function handle(rates) {
-    var key = Object.keys(rates)[0].slice(0, 3);
-    finalRates[key] = 1;
 
-    orderRates(rates, 0);
-    orderRates(rates, 1)
+    // Extract data from api into global object variable for ease of use
+    finalRates[rates.base] = 1;
+    finalRates[Object.keys(rates.rates)[0]] = Object.values(rates.rates)[0];
+    finalRates[Object.keys(rates.rates)[1]] = Object.values(rates.rates)[1];
 
     fillTable("USD", 1);
     fillTable("ILS", 2);
     fillTable("EUR", 3);
 }
 
-function orderRates(rates, index) {
-    var key = Object.keys(rates)[index].slice(4, 7);
-    finalRates[key] = rates[Object.keys(rates)[index]];
-}
-
+// Fills table to be displayed in correct order
 function fillTable(key, index) {
     var amount = document.getElementById("amount").value;
-    var x = document.getElementById("exchangeTable").rows[index].cells;
+    var cell = document.getElementById("exchangeTable").rows[index].cells;
     var total = amount * finalRates[key];
-    x[1].innerHTML = total.toFixed(3);
+    cell[1].innerHTML = total.toFixed(3);
 }
-
-
